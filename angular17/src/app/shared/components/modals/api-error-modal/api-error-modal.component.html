@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <button class="modal-close" (click)="dismiss()">&times;</button>
+</div>
+<div class="modal-body">
+  <ng-container *ngTemplateOutlet="genericError"></ng-container>
+</div>
+
+<ng-template #genericError>
+  <div class="info-icon">
+    <img *ngIf="!showErrorIcon" src="assets/images/errors/icon-error-500.png" alt="img-error-icon" />
+    <i *ngIf="showErrorIcon" class="iconlace iconlace-alert-radius alert"></i>
+  </div>
+  <div class="info-title">¡Error!</div>
+  <div class="info-content">
+    <p>{{ errorMessage }}</p>
+  </div>
+  <div class="content-buttons">
+    <button type="button" class="btn btn-primary login-button" (click)="dismiss()">
+      Aceptar
+    </button>
+  </div>
+</ng-template>

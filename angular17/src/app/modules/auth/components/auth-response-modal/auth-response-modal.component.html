@@ -1,0 +1,124 @@
+<div class="modal-header">
+    <button class="modal-close" (click)="dismiss()">&times;</button>
+</div>
+<div class="modal-body">
+  <ng-container *ngIf="isEmailNotExist">
+    <ng-container *ngTemplateOutlet="emailNotExist"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="isStartForgotPasswordSuccess">
+    <ng-container *ngTemplateOutlet="forgotPasswordSuccess"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="isEmailExpiredToken">
+    <ng-container *ngTemplateOutlet="emailExpiredToken"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="isResetPasswordSuccess">
+    <ng-container *ngTemplateOutlet="resetPasswordSuccess"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="isMigratedAccountSuccess">
+    <ng-container *ngTemplateOutlet="migratedAccountSuccess"></ng-container>
+  </ng-container>
+</div>
+
+<ng-template #resetPasswordSuccess>
+  <div class="info-icon">
+    <i class="iconlace iconlace-circle circle"></i>
+    <i class="iconlace iconlace-check check"></i>
+  </div>
+  <div class="info-title">¡Listo!</div>
+  <div class="info-content pb-2">
+    <p>
+      Tu contraseña se ha cambiado exitosamente.
+    </p>
+  </div>
+  <div class="content-buttons">
+    <button type="button" class="btn btn-primary login-button" (click)="close()">Aceptar</button>
+  </div>
+</ng-template>
+
+<ng-template #migratedAccountSuccess>
+  <div class="info-icon">
+    <i class="iconlace iconlace-circle circle"></i>
+    <i class="iconlace iconlace-check check"></i>
+  </div>
+  <div class="info-title">¡Listo!</div>
+  <div class="info-content pb-2">
+    <p>
+      Tu contraseña se ha restaurado exitosamente.
+    </p>
+  </div>
+  <div class="content-buttons">
+    <button type="button" class="btn btn-primary login-button" (click)="close()">Aceptar</button>
+  </div>
+</ng-template>
+
+<ng-template #emailNotExist>
+  <div class="info-icon">
+    <i class="iconlace iconlace-alert-radius alert"></i>
+  </div>
+  <div class="info-title">¡Error!</div>
+  <div class="info-content">
+    <p>
+      No existe una cuenta asociada a este correo, <br />
+      verifícalo o crea una nueva cuenta.
+    </p>
+  </div>
+  <div class="content-buttons">
+    <div
+      class="btn-link-signup"
+      (click)="redirecToRegister()"
+      (keyup)="redirecToRegister()"
+      role="button"
+      tabindex="0"
+    >
+      Crear cuenta nueva aquí.
+    </div>
+    <ng-container *ngTemplateOutlet="contentHelperLinks"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #forgotPasswordSuccess>
+  <div class="info-icon">
+    <i class="iconlace iconlace-circle circle"></i>
+    <i class="iconlace iconlace-check check"></i>
+  </div>
+  <div class="info-title">¡Listo!</div>
+  <div class="info-content pb-2">
+    <p>
+      Hemos enviado un correo electrónico para que puedas cambiar tu contraseña.
+    </p>
+  </div>
+  <div class="content-buttons">
+    <button type="button" class="btn btn-primary login-button" (click)="redirecToHome()">Aceptar</button>
+    <ng-container *ngTemplateOutlet="contentHelperLinks"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #emailExpiredToken>
+  <div class="info-icon">
+    <i class="iconlace iconlace-alert-radius alert"></i>
+  </div>
+  <div class="info-title">¡Error!</div>
+  <div class="info-content">
+    <p>Parece que este enlace ya expiró. Solicita uno nuevo ingresando tu correo electrónico en la siguiente
+    pantalla.</p>
+  </div>
+  <div class="content-buttons">
+    <button type="button" class="btn btn-primary login-button" (click)="close()">Aceptar</button>
+    <ng-container *ngTemplateOutlet="contentHelperLinks"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #contentHelperLinks>
+  <div class="content-helper-links">
+    <a
+      class="btn-link-support"
+      target="_blank"
+      (click)="redirecToFaq()"
+      (keyup)="redirecToFaq()"
+      role="button"
+      tabindex="0"
+      >Ayuda</a
+    >
+    <a class="btn-link-support" [href]="emailSupport">Soporte</a>
+  </div>
+</ng-template>

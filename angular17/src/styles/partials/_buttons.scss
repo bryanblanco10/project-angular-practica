@@ -1,0 +1,51 @@
+@mixin btn-main(
+  $height: 32px,
+  $width: 198px,
+  $background: var(--purple-2),
+  $color: var(--white),
+  $borderRadius: var(--border-radius-25),
+  $font-size: var(--f-16),
+  $text-type: var(--lato-font),
+  $lineHeight: normal) {
+  height: $height;
+  width: $width;
+  background-color: $background;
+  color: $color;
+  border-radius: $borderRadius;
+  font-size: $font-size;
+  font-family: $text-type;
+  line-height: $lineHeight;
+  transition: .3s;
+  cursor: pointer;
+  &:hover, &:focus, &:active {
+    background-color: $background;
+    border-color: $background;
+  }
+}
+
+@mixin btn-disabled($background: var(--ucla-blue), $opacity: 0.2) {
+  background-color: $background;
+  opacity: $opacity;
+}
+
+%btn-shared-styles {
+  @include flex(center, center);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin: 10px auto;
+  padding: 14px 47px;
+  
+  &:disabled {
+    @include btn-disabled();
+  }
+}
+
+.login-button {
+  @include btn-main();
+  @extend %btn-shared-styles;
+}
+
+.login-back-button {
+  @include btn-main($background: var(--purple-navy));
+  @extend %btn-shared-styles;
+}

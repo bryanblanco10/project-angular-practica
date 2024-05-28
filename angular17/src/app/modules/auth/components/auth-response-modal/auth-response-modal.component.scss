@@ -1,0 +1,81 @@
+@import "abstracts/mixins";
+@import "partials/buttons";
+
+.modal {
+  &-body {
+    padding: 10px;
+  }
+  &-close {
+    padding: 0;
+    font-size: var(--f-36);
+    color: var(--white);
+  }
+}
+
+.info {
+  &-icon {
+    @include flex(center);
+    position: relative;
+    color: var(--cyan);
+    margin: 0 auto;
+    .alert {
+      font-size: var(--f-45);
+      margin-bottom: 0;
+      padding: 0;
+      color: var(--orange);
+    }
+    .circle {
+      font-size: var(--f-45);
+    }
+    .check {
+      position: absolute;
+      top: 12px;
+      font-size: var(--f-20);
+    }
+  }
+  &-title {
+    @include font(var(--lato-font), var(--f-30), 36px, $weight: 900);
+    text-align: center;
+    margin: 18px 0px;
+  }
+  &-content {
+    p {
+      @include font(var(--lato-font), var(--f-16), 19px, $weight: 400);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.content-buttons {
+  @include flex(center, center, column);
+  width: 100%;
+  padding: 0 15px 15px 15px;
+  .btn-primary {
+    @include btn-main($width: 215px);
+    @include flex(center, center);
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+  }
+  .btn-link-support {
+    background-color: var(--transparent);
+    color: var(--glaucous);
+    font-size: var(--f-12);
+    text-decoration: underline;
+    cursor: pointer;
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+  .btn-link-signup {
+    font-size: var(--f-14);
+    color: var(--celeste);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.content-helper-links {
+  margin-top: 10px;
+  display: inline-block;
+}

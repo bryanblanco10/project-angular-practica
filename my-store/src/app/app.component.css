@@ -1,0 +1,29 @@
+.box {
+  height: 200px;
+  width: 200px;
+  overflow: auto;
+  background-color: red;
+}
+
+.message-error {
+  background-color: red;
+  color: white;
+  display: none;
+}
+
+.message-error.active {
+  display: block;
+  font-style: italic;
+}
+
+.line-error {
+  height: 0;
+  border-bottom: 1px solid;
+}
+
+.line-error.valid {
+  border-color: green;
+}
+.line-error.invalid {
+  border-color: red;
+}

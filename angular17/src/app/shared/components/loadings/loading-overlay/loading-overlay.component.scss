@@ -1,0 +1,75 @@
+@import "abstracts/mixins";
+
+#loading{
+	position: fixed;
+	text-align: center;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(var(--black-rgb), .75);
+	overflow: hidden;
+	outline: 0;
+	animation-duration: 1.5s;
+	-webkit-animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+  .loading {
+    @include flex(center, center, column);
+    height: 100%;
+  }
+	p{
+    @include font($font-family: var(--panton-font), $size: var(--f-18), $weight: 400);
+	}
+}
+.sk-cube-grid {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: var(--white);
+    float: left;
+  }
+  .sk-cube1 {
+    background-color: transparent;
+  }
+  .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    border-radius: 50% 50% 0 0;
+    background-color: var(--gray);
+  }
+  .sk-cube3 {
+    background-color: transparent;
+  }
+  .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+    border-radius: 50% 0 0 50%;
+  }
+  .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+    background-color: var(--chinase-silver);
+  }
+  .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    border-radius: 0 50% 50% 0;
+    background-color: var(--gray);
+  }
+  .sk-cube7 {
+    background-color: transparent;
+  }
+  .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+    border-radius: 0 0 50% 50%;
+  }
+  .sk-cube9 {
+    background-color: transparent;
+  }
+}
+

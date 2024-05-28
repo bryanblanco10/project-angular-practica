@@ -1,0 +1,27 @@
+<!-- <h1>DatePipes</h1>
+<p>Today: {{ today | date : "short" }}</p>
+<p>Date: {{ date | date : "yyyy.MM.dd" }}</p>
+<p>Timeago: {{ date | timeAgo }}</p>
+<p>{{ "Bryan Blanco" | uppercase }}</p> -->
+<p>
+  <button (click)="createProduct()">Crear producto</button>
+</p>
+<div class="container">
+  <app-product
+    (addProductCard)="addProductShoppingCart($event)"
+    (showDetail)="showDetail($event)"
+    *ngFor="let item of products"
+    [product]="item"
+  ></app-product>
+</div>
+<div class="product-detail" [ngClass]="{ active: isShowDetail }">
+  <div>
+    <button (click)="toggleDetail()">Close</button>
+    <div>
+      <app-img [img]="detail.image"></app-img>
+      <h2>{{ detail.title }}</h2>
+      <p>${{ detail.price | currency : "COP" }}</p>
+      <p appHightlight>{{ detail.description }}</p>
+    </div>
+  </div>
+</div>

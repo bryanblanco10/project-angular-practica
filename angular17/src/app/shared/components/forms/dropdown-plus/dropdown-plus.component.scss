@@ -1,0 +1,145 @@
+@import "abstracts/mixins";
+
+.cont-base {
+  width: 100%;
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--purple-navy);
+  border-radius: 4px;
+  font-weight: 300;
+  cursor: pointer;
+  .select {
+    &-wrapper {
+      @include flex(space-around);
+      position: relative;
+      height: 38px;
+      padding: 0 12px;
+      background-color: var(--transparent);
+      border-top-left-radius: var(--border-radius-12);
+      border-top-right-radius: var(--border-radius-12);
+    }
+    &-header {
+      @include flex(space-between, center);
+      width: 100%;
+      i {
+        font-size: var(--f-12);
+        color: var(--purple-navy);
+      }
+    }
+    &-body {
+      position: absolute;
+      width: 100%;
+      padding: 10px 0px;
+      top: 45px;
+      left: 0px;
+      z-index: 101;
+      border: 1px solid var(--purple-2);
+      background-color: var(--space-cadet);
+      &-top {
+        transform: translateY(-122%);
+      }
+    }
+    &-option {
+      @include flex($direction: column);
+      @include scroll($bgThumb: var(--purple-navy-rgb), $opacity: 1);
+      max-height: 150px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    &-item {
+      @include flex($alignItems: center);
+      padding: 5px 0;
+      margin-bottom: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--purple-2);
+      }
+      &.active {
+        background-color: var(--purple-2);
+      }
+      span {
+        padding-left: 10px;
+      }
+    }
+    &-search {
+      padding: 0 10px;
+    }
+    &-title {
+      text-align: start;
+      color: var(--gray-2);
+      font-family: var(--lato-font);
+      font-weight: 400;
+      flex-grow: 1;
+      &.picked {
+        color: var(--white);
+      }
+      &.color-white {
+        color: var(--white);
+      }
+    }
+    
+  }
+}
+
+.overlay {
+  @include animate($time: 300s, $velocity: ease-in);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(var(--black-rgb), 0.5);
+  transition: 300s ease-in;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .cont-base {
+    .select {
+      &-body {
+        width: 98%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: var(--border-radius-12);
+      }
+    }
+  }
+  .overlay {
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      @include flex(center, center);
+    }
+  }
+}
+
+
+:host(.ng-touched.ng-valid), :host(.ng-dirty.ng-valid) {
+  .cont-base {
+    border: 1px solid  var(--purple-2);
+    .select {
+      &-header {
+        i {
+          color:  var(--purple-2);
+        }
+      }
+    }
+  }
+}
+
+:host(.ng-touched.ng-invalid), :host(.ng-dirty.ng-invalid) {
+  .cont-base {
+    border: 1px solid var(--orange);
+    .select {
+      &-header {
+        i {
+          color: var(--orange);
+        }
+      }
+    }
+  }
+}

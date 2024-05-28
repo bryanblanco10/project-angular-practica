@@ -1,0 +1,102 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@models/*": [
+        "src/app/core/models/*"
+      ],
+      "@config/*": [
+        "src/app/core/config/*"
+      ],
+      "@services/*": [
+        "src/app/core/services/*"
+      ],
+      "@interceptors/*": [
+        "src/app/core/interceptors/*"
+      ],
+      "@guards/*": [
+        "src/app/core/guards/*"
+      ],
+      "@interfaces/*": [
+        "src/app/core/models/interfaces/*"
+      ],
+      "@classes/*": [
+        "src/app/core/models/classes/*"
+      ],
+      "@enums/*": [
+        "src/app/core/models/enums/*"
+      ],
+      "@constants/*": [
+        "src/app/core/models/constants/*"
+      ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@components/*": [
+        "src/app/shared/components/*"
+      ],
+      "@directives/*": [
+        "src/app/shared/directives/*"
+      ],
+      "@helpers/*": [
+        "src/app/shared/helpers/*"
+      ],
+      "@pipes/*": [
+        "src/app/shared/pipes/*"
+      ],
+      "@layouts/*": [
+        "src/app/shared/layouts/*"
+      ],
+      "@animations/*": [
+        "src/app/shared/animations/*"
+      ],
+      "@utils/*": [
+        "src/app/shared/utils/*"
+      ],
+      "@auth/*": [
+        "src/app/modules/auth/*"
+      ]
+    },
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

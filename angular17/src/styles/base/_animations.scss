@@ -1,0 +1,101 @@
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animación: bounceInLeft
+ - Al inicio (0%), el elemento está completamente oculto y desplazado hacia la izquierda (-100px).
+ - En el punto intermedio de la animación (60%), el elemento se muestra con una opacidad del 100% y se desplaza hacia la derecha (30px).
+ - En el punto 80%, el elemento se desplaza ligeramente hacia la izquierda (-10px) para simular un efecto de rebote.
+ - Finalmente, en el punto 100%, el elemento regresa a su posición original (0px).
+*/
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.bounceInLeft {
+  animation: bounceInLeft 1s ease;
+}
+
+/* Animación: fadeInOut
+  - Animación para los popups del header y estos tengan un efecto suavizado al aparecer/desaparecer en pantalla
+*/
+.popup {
+  opacity: 0;
+}
+
+.popup.ng-trigger-fadeInOut {
+  transition: opacity 300ms ease-in-out;
+}
+
+.popup.ng-trigger-fadeInOut {
+  opacity: 1;
+}
+
+/* Animación: cubeGridScaleDelay
+  - Esta animación se usa para el loading General.
+  - Animación de escalado y desvanecimiento de cubos en una cuadrícula que se repite continuamente con una duración de 1.3 segundos y un efecto ease-in-out.
+*/
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+}
+
+.cubeGridScaleDelay {
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+/* Animación: bouncedelay
+  - Esta animación se usa para el loading de paginación vertical o botones.
+  - Animación de carga que utiliza una técnica llamada "bouncing ball"
+  - Durante el 40% de la animación, la pelota se agranda para dar la sensación de que rebota.
+  - Durante el 0%, 80% y 100%, la pelota se hace invisible mediante la propiedad transform: scale(0) que la escala a un tamaño de 0,
+    creando así el efecto de desaparición y aparición de la pelota mientras rebota.
+*/
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}

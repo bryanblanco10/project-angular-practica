@@ -1,0 +1,19 @@
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+@import "base/typography";
+@import "base/colors";
+@import "base/icons";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "partials/body";
+@import "partials/buttons";
+@import "partials/inputs";
+@import "partials/modals";
+@import "partials/radios";
+
+@import "base/animations";
+@import "base/reset";
+
+@import "partials/cards";

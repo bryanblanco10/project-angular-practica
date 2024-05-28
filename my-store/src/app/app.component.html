@@ -1,0 +1,155 @@
+<!-- <h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input
+      type="text"
+      required
+      name="name"
+      id="name"
+      [(ngModel)]="register.name"
+    />
+    <p>Mesaje de error</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      required
+      name="email"
+      id="email"
+      [(ngModel)]="register.email"
+    />
+    <p>Mesaje de error</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      required
+      name="password"
+      id="password"
+      [(ngModel)]="register.password"
+    />
+    <p>Mesaje de error</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+</form>
+<hr />
+<h1>ngClass & ngStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="name" />
+<hr
+  class="line-error"
+  [ngClass]="{
+    valid: nameInput4.valid,
+    invalid: nameInput4.invalid
+  }"
+/>
+<div class="styles">
+  <div>
+    <input type="numnber" [(ngModel)]="box.width" />
+    <input type="numnber" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div>
+    <div
+      [ngStyle]="{
+        'width.px': box.width,
+        'height.px': box.height,
+        background: box.background
+      }"
+    ></div>
+  </div>
+</div>
+<hr />
+<h1>Class & Style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="name" />
+<p class="message-error" [class.active]="nameInput2.invalid">
+  Campo requerido.
+</p>
+<hr />
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="name" />
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">
+  Campo requerido.
+</p>
+<hr />
+<h1>*ngSwitch</h1>
+<input type="text" [(ngModel)]="name" />
+<div [ngSwitch]="name">
+  <p *ngSwitchCase="'bryan'">Soy Bryan</p>
+  <p *ngSwitchCase="'messi'">Soy Messi</p>
+  <p *ngSwitchDefault>Soy Desconocido</p>
+</div>
+<hr />
+<h1>*ngFor</h1>
+<ul>
+  <li *ngFor="let name of names; index as i">{{ i }}{{ name }}</li>
+</ul>
+<hr />
+<h1>*ngIf</h1>
+<input type="text" [(ngModel)]="name" />
+<p *ngIf="name === 'bryan'; else elseBlock">Soy Bryan</p>
+<ng-template #elseBlock>
+  <p>No soy Bryan</p>
+</ng-template>
+<hr />
+<input type="text" [value]="name" (keyup)="onKeyUp($event)" />
+<hr />
+<hr />
+<h1>ngModel</h1>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="name" />
+<p>Valid: {{ nameInput.valid }}</p>
+<hr />
+<div class="box" (scroll)="onScroll($event)">
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur
+    exercitationem aliquam? Magnam suscipit ad adipisci aliquam quaerat illo,
+    omnis eaque cum magni iste minima! Sapiente quidem ducimus quasi eaque.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum deleniti
+    adipisci maiores. Harum aspernatur aut quos incidunt, quas pariatur maiores
+    inventore distinctio alias explicabo voluptate architecto nobis rerum cum
+    sed. Distinctio cumque minus ipsum dicta aperiam amet hic possimus
+    consequatur voluptas blanditiis nesciunt illo eaque quod, vel temporibus
+    culpa error fugit nostrum totam! Dolorem aliquam quos quaerat eveniet
+    molestiae cum? Consequuntur reiciendis asperiores neque incidunt veniam ab
+    nobis voluptatem aliquid magnam dolorem, soluta quisquam hic non assumenda
+    blanditiis est? Officiis ut vero odio nihil, dicta vel facilis molestias qui
+    ab. Dolorem molestias, vero facilis magni maxime dolores eaque placeat eum
+    sequi dignissimos atque! Maxime aperiam quae hic, sed et voluptatum quis
+    voluptatibus. Reiciendis animi illo, provident at repellat modi aliquam?
+    Dignissimos quisquam id, odio laudantium laborum perferendis minima
+    doloribus sed exercitationem minus expedita eveniet, quidem vitae veritatis
+    sunt similique, dolor natus labore ducimus pariatur iste aspernatur
+    quibusdam voluptatum. Eos, accusamus. Quisquam libero, velit excepturi ipsum
+    accusantium atque itaque sint similique blanditiis mollitia sapiente
+    deleniti, quo officia nesciunt nulla quis quas earum quaerat quod. Dolore
+    aut doloribus ex provident, beatae ratione. Asperiores amet, ipsam
+    reiciendis quaerat animi excepturi veniam quae delectus quasi accusantium
+    odio minima sunt commodi officia, ipsa inventore veritatis quis architecto,
+    rem laudantium magni unde mollitia! Natus, mollitia iusto. Nisi a hic ex, at
+    repudiandae ipsam, modi soluta inventore minus delectus placeat. Velit
+    laudantium quasi minima, hic veniam, omnis, maiores corporis debitis
+    voluptates at modi illo deleniti magni neque? Voluptate impedit quae magni
+    fugit ducimus, aperiam beatae et quidem quam soluta nisi iure reprehenderit
+    cumque. Consequuntur minima sit, provident aut soluta perspiciatis animi
+    beatae nesciunt commodi incidunt officiis aspernatur. Doloribus quaerat quis
+    vel, labore vitae necessitatibus qui nostrum sed eius praesentium alias
+    harum dignissimos consequatur cupiditate adipisci minima nulla sit tempora
+    rem eos expedita et accusamus? Nesciunt, ipsa placeat.
+  </p>
+</div>
+<button (click)="toggleBtn()">Toggle</button>
+<button [disabled]="isDisabled">Enviar</button>
+<input type="text" [value]="name" />
+<h1>Hola mundo</h1>
+<h2>Hola soy {{ name }}</h2>
+<img src="{{ img }}" alt="" /> -->
+
+<!-- <input type="text" [(ngModel)]="imgParent" />
+<button (click)="onToggleImag()">onToggleImag</button>
+<app-img (loaded)="onLoaded($event)" [img]="imgParent" *ngIf="isImg"></app-img> -->
+
+<app-header />
+<router-outlet></router-outlet>
+<!-- <app-products [products]="products"></app-products> -->

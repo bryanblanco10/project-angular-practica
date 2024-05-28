@@ -1,0 +1,24 @@
+@import "abstracts/mixins";
+@import "partials/buttons";
+
+.modal {
+  &-body {
+    padding: 10px;
+  }
+  &-close {
+    padding: 0;
+    font-size: var(--f-36);
+    color: var(--white);
+  }
+}
+
+.btn-primary {
+  @include btn-main($width: 172px);
+  @include flex(center, center);
+  margin: 10px auto;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+
+

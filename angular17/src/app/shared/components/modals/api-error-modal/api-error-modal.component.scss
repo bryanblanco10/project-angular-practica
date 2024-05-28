@@ -1,0 +1,54 @@
+@import "abstracts/mixins";
+@import "partials/buttons";
+
+.modal {
+  &-body {
+    padding: 10px;
+  }
+  &-close {
+    padding: 0;
+    font-size: var(--f-36);
+    color: var(--white);
+  }
+}
+
+.info {
+  &-icon {
+    @include flex(center);
+    .alert {
+      font-size: var(--f-45);
+      margin-bottom: 0;
+      padding: 0;
+      color: var(--orange);
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  &-title {
+    @include font(var(--lato-font), var(--f-30), 36px, $weight: 900);
+    text-align: center;
+    margin: 18px 0px;
+  }
+  &-content {
+    p {
+      @include font(var(--lato-font), var(--f-16), 19px, $weight: 400);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.content-buttons {
+  @include flex(center, center, column);
+  width: 100%;
+  padding: 0 15px 15px 15px;
+  .btn-primary {
+    @include btn-main($width: 215px);
+    @include flex(center, center);
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+  }
+}
+

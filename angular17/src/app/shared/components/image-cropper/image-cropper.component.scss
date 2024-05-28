@@ -1,0 +1,36 @@
+@import "abstracts/mixins";
+
+.cropper-container {
+    @include flex(center, center);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000000;
+    background-color: rgba(var(--black-rgb), 0.5);
+    .cropper {
+      height: 50vh;
+      max-width: 50rem;
+      width: 90%;
+      image-cropper {
+        border-radius: 10px;
+      }
+    }
+    .buttons-section {
+      text-align: center;
+      margin-top: 15px;
+      @media (max-width: 460px) {
+        @include flex();
+        button.btn {
+          margin-inline: 5px;
+        }
+      }
+      button {
+        color: var(--white);
+        background-color: var(--ucla-blue);
+        margin-inline: 10px;
+      }
+    }
+  }
+  

@@ -1,0 +1,30 @@
+@import "abstracts/mixins";
+
+.container-faq {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.content {
+  &-container {
+    @include flex(center, center, column);
+  }
+  &-title {
+    @include font($size: var(--f-30), $line-height: var(--f-36), $weight: 900);
+    text-transform: uppercase;
+  }
+  &-subtitle {
+    @include font($size: var(--f-16), $line-height: var(--f-19), $weight: 600);
+    align-self: flex-start;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  &-paragraph {
+    @include font($size: var(--f-16), $line-height: var(--f-19), $weight: 400);
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 15px;
+  }
+}
+

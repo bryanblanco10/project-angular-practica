@@ -1,0 +1,125 @@
+@mixin flex($justifyContent: flex-start, $alignItems: stretch, $direction: row) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $direction;
+}
+
+@mixin animate($property: all, $time: 0.4s, $velocity: linear) {
+  transition: $property $time $velocity;
+}
+
+@mixin general-box-shadow-none() {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+@mixin background-opacity($color, $opacity: 1) {
+  background: $color;
+  background: rgba($color, $opacity);
+}
+
+@mixin background-image($url) {
+  background-image: url($url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: static;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+@mixin text-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin placeholder($color, $font-size, $font-family) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $font-size;
+    overflow: hidden;
+    font-family: $font-family;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+}
+
+@mixin scroll(
+  $horizontal: false,
+  $borderRadiusTrack: var(--border-radius-0),
+  $boxShadow: var(--black-rgb),
+  $size: 6px,
+  $bgScrollbar: var(--neutro),
+  $borderRadiusThumb: var(--border-radius-0),
+  $bgThumb: var(--space-cadet-rgb),
+  $opacity: 0.8,
+  $outline: var(--purple-navy)) {
+  &::-webkit-scrollbar-track {
+    border-radius: $borderRadiusTrack;
+    background-color: var(--transparent);
+    box-shadow: inset 0 0 6px rgba($boxShadow, 0.3);
+  }
+  &::-webkit-scrollbar {
+    @if $horizontal {
+      height: $size
+    }
+    @else {
+      width: $size
+    }
+    background-color: $bgScrollbar;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $borderRadiusThumb;
+    background-color: rgba($bgThumb, $opacity);
+    outline: 1px solid $outline;
+  }
+}
+
+@mixin transparent-scroll() {
+  &::-webkit-scrollbar {
+    background: var(--transparent);
+    width: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--transparent);
+    width: 0px;
+  }
+}
+
+
+@mixin font(
+	$font-family: var(--lato-font),
+  $size: var(--f-14),
+  $line-height: normal,
+  $color: var(--white),
+  $weight: normal,
+  $normalize: false,
+  $text-transform: null
+) {
+  color: $color;
+	font-family: $font-family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+
+  @if $normalize {
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+  }
+}

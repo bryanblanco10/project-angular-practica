@@ -1,0 +1,15 @@
+<header class="modal-header">
+  <button class="modal-close" (click)="dismiss()">&times;</button>
+</header>
+<section class="modal-body">
+  <app-faq [hasBackground]="false"></app-faq>
+</section>
+<footer class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="dismiss()"
+    aria-label="Cerrar modal">
+    CERRAR
+  </button>
+</footer>

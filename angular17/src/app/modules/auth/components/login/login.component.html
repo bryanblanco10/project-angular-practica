@@ -1,0 +1,77 @@
+<section class="content">
+  <div class="content-title">Iniciar sesión</div>
+  <div class="content-form">
+    <ng-container *ngTemplateOutlet="form"></ng-container>
+  </div>
+  <div class="content-actions">
+    <div
+      class="content-call-to-action"
+      (click)="redirectToForgotPassword()"
+      (keyup)="redirectToForgotPassword()"
+      role="button"
+      tabindex="0"
+    >
+      <a class="content-action">¿Olvidaste tu contraseña?</a>
+    </div>
+    <div class="content-call-to-action">
+      <span class="sign-up">¿No tienes cuenta?</span>
+      <a
+        class="content-action"
+        (click)="redirectToRegister()"
+        (keyup)="redirectToRegister()"
+        role="button"
+        tabindex="0">
+        Regístrate ahora
+      </a>
+    </div>
+    <div class="content-links">
+      <a class="link" target="_blank" [routerLink]="faq">Ayuda</a>
+      <a class="link" [href]="emailSupport">Soporte</a>
+    </div>
+  </div>
+</section>
+
+<ng-template #form>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="authenticate()"
+    novalidate
+    autocomplete="off"
+  >
+    <div class="form-group mb-3">
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Dirección de correo electrónico"
+        (keyup)="handleErrorCode()"
+      />
+    </div>
+    <div class="form-group">
+      <app-password-plus 
+        formControlName="password" 
+        [placeholder]="'Contraseña'" 
+        (keyUpPassword)="handleErrorCode()">
+      </app-password-plus>
+      @if (errorCode) {
+        <div class="invalid-feedback">
+          {{ errorCode | errorCodeToMessage }}
+        </div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary mt-4"
+      [appApplyClass]="buttonClassName"
+      [disabled]="disableButton"
+    >
+      @if(isApiLoading()) {
+        <app-loading-bounce [isLoading]="isApiLoading()" [color]="'#FFF'"></app-loading-bounce>
+      } @else {
+        INGRESAR
+      }
+    </button>
+  </form>
+</ng-template>

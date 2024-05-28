@@ -1,0 +1,58 @@
+@import "abstracts/mixins";
+@import 'partials/inputs';
+
+.content {
+  @include flex(flex-start, center, column);
+  &-title {
+    @include font(
+      $font-family: var(--lato-font),
+      $size: var(--f-35),
+      $weight: 900
+    );
+  }
+  &-subtitle {
+    @include font(
+      $font-family: var(--lato-font),
+      $size: var(--f-16),
+      $weight: 400
+    );
+    text-align: center;
+    margin: 40px 0px 0px 0px;
+  }
+  &-form {
+    width: 100%;
+    padding: 0 20px 0 25px;
+    margin: 40px 0px 20px 0px;
+  }
+  &-buttons {
+    @include flex(center, center);
+    gap: 10px
+  }
+}
+
+.form-control {
+  @include input-main();
+  &::placeholder {
+    color: var(--gray-2);
+  }
+}
+
+.dropdowns-birthday {
+  @include flex(stretch, stretch);
+  width: 100%;
+  gap: 10px;
+  app-dropdown-plus {
+    flex: 1;
+  }
+}
+
+.term-condicions {
+  width: 100%;
+  @include flex(center, center);
+  .ref-clickable {
+    margin-left: 5px;
+    color: var(--celeste);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

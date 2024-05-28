@@ -1,0 +1,26 @@
+@if (!isApiLoading()) {
+  <section class="content">
+    <div class="content-title">¡Bienvenido de vuelta!</div>
+    <div class="content-subtitle">
+      <p>
+        Hemos realizado unos cambios y necesitamos verificar unos datos de tu
+        cuenta.
+      </p>
+      <p>
+        Enviaremos un link a tu correo electrónico para que restaures tu
+        contraseña y puedas ingresar a Enlace+.
+      </p>
+    </div>
+    <div class="content-button">
+      <button type="button" class="btn btn-primary" (click)="redirect()" [appApplyClass]="buttonClassName">
+        ACEPTAR
+      </button>
+    </div>
+    <div class="content-links">
+      <a class="link" target="_blank" [routerLink]="faq">Ayuda</a>
+      <a class="link" [href]="emailSupport">Soporte</a>
+    </div>
+  </section>
+} @else { 
+  <app-loading-bounce [isLoading]="isApiLoading()" [color]="'#FFF'"></app-loading-bounce>
+}

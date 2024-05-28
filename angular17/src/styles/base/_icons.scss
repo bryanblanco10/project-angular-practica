@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'iconlace';
+  src: url('/assets/icons/iconlace.eot');
+  src: url('/assets/icons/iconlace.eot') format('embedded-opentype'),
+    url('/assets/icons/iconlace.ttf') format('truetype'),
+    url('/assets/icons/iconlace.woff') format('woff'),
+    url('/assets/icons/iconlace.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.iconlace {
+  font-family: 'iconlace' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//Iconlace list
+
+// Search
+.iconlace-search:before {
+  content: "\e933";
+}
+.iconlace-actions-search:before {
+  content: "\e9b5";
+}
+
+// Directions - Arrows
+.iconlace-chevron-down:before {
+  content: "\e91d";
+}
+.iconlace-chevron-down-circle:before {
+  content: "\e91c";
+}
+.iconlace-arrow-down:before {
+  content: "\e943";
+}
+.iconlace-arrow-down-circle:before {
+  content: "\e942";
+}
+.iconlace-chevron-next:before {
+  content: "\e91f";
+}
+.iconlace-chevron-previous:before {
+  content:  "\e91e";
+}
+.iconlace-down-circle:before {
+  content: "\e91c";
+}
+
+// Actions
+.iconlace-menu:before {
+  content: "\e935";
+}
+.iconlace-cross:before {
+  content: "\e928";
+}
+.iconlace-play:before {
+  content: "\e913";
+}
+.iconlace-heart:before {
+  content: "\e939";
+}
+.iconlace-eye:before {
+  content: "\e958";
+}
+.iconlace-eye-off:before {
+  content: "\e97a";
+}
+
+// Contents - Pages
+.iconlace-podcast:before {
+  content: "\e9a8";
+}
+.iconlace-ministries:before {
+  content: "\e90e";
+}
+.iconlace-people:before {
+  content: "\e9c3";
+}
+.iconlace-play-circle:before {
+  content: "\e902";
+}
+.iconlace-program:before {
+  content: "\e967";
+}
+.iconlace-video:before {
+  content: "\e927";
+}
+.iconlace-bible:before {
+  content: "\e957";
+}
+.iconlace-pray:before {
+  content: "\e902";
+}
+.iconlace-community:before {
+  content: "\e9ce";
+}
+.iconlace-bookshop:before {
+  content: "\e909";
+}
+.iconlace-article:before {
+  content: "\e9a7";
+}
+.iconlace-donate:before {
+  content: "\e906";
+}
+.iconlace-home:before {
+  content: "\e907";
+}
+.iconlace-person:before {
+  content: "\e9bf";
+}
+
+// Icons
+.iconlace-phone:before {
+  content: "\e93b";
+}
+.iconlace-check:before {
+  content: "\e987";
+}
+.iconlace-user:before {
+  content: "\e93d";
+}
+.iconlace-circle-status:before {
+  content: "\e9a0";
+}
+.iconlace-circle:before {
+  content: "\e930";
+}
+.iconlace-close:before{
+  content: "\e905";
+}
+.iconlace-alert-radius:before {
+  content: "\e975";
+}
+
+

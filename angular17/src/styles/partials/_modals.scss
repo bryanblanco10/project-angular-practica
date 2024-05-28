@@ -1,0 +1,95 @@
+.modal-backdrop {
+  --bs-backdrop-opacity: 0.7;
+}
+
+.light-black-backdrop {
+  background-color: var(--black);
+}
+
+.modal {
+  @include scroll($size: 8px, $borderRadiusThumb: var(--border-radius-6));
+}
+
+.dark-modal {
+  background: 0 5px 15px rgba(var(--black-rgb), 0.5);
+  .modal-header {
+    justify-content: flex-end;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+    div {
+      display: inline-block;
+      font-size: var(--f-32);
+      font-weight: 100;
+      color: var(--white);
+      cursor: pointer;
+    }
+    .btn-close {
+      background: none;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  .modal-body {
+    padding: 10px 60px;
+  }
+  .modal-content {
+    background-color: var(--space-cadet);
+    color: var(--white);
+    box-shadow: 0 5px 15px rgba(var(--black-rgb), 0.5);
+  }
+  .modal-footer {
+    border-top: none;
+  }
+}
+
+.privacy-policy-modal {
+  .modal-content {
+    width: auto;
+    background-color: var(--neutro);
+  }
+}
+
+.login-modal {
+  .modal-content {
+    @include background-image("/assets/images/bg/bg-new-login.png");
+  }
+}
+
+.faq-modal {
+  .modal-content {
+    @include background-image("/assets/images/bg/bg-faq.jpg");
+  }
+}
+
+.subscription-plan-modal {
+  .modal-content {
+    @include background-image("/assets/images/bg/bg-subscription-desktop.jpg");
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    &.subscription-plan-modal {
+      --bs-modal-width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dark-modal {
+    .modal-content {
+      width: 100%;
+    }
+    .modal-body {
+      padding: 10px 22px;
+    }
+  }
+  .subscription-plan-modal {
+    .modal-content {
+      @include background-image("/assets/images/bg/bg-subscription-mobile.jpg");
+    }
+  }
+}

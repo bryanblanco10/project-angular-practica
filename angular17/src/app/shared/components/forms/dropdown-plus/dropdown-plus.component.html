@@ -1,0 +1,61 @@
+<div
+  role="button"
+  tabindex="0"
+  class="cont-base"
+  [appClickOutside]="showOptions"
+  (outsideClick)="closeOptions()"
+  (click)="toggleShowOptions()"
+  (keyup.enter)="toggleShowOptions()">
+  <div class="select-wrapper">
+    <div class="select-header">
+      <div class="select-template">
+        <ng-container
+          [ngTemplateOutlet]="defaultSelected"
+          [ngTemplateOutletContext]="{ $implicit: picked }">
+        </ng-container>
+      </div>
+      <i class="iconlace iconlace-chevron-down"></i>
+    </div>
+    <div class="select-body" *ngIf="showOptions" [appCheckElementIsVisible]="classElementIsNotVisible">
+      <div class="select-option">
+        <ng-container *ngIf="optionTemplateRef; else selectItem">
+          <ng-container
+            [ngTemplateOutlet]="optionTemplateRef"
+            [ngTemplateOutletContext]="{ $implicit: options }">
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #selectItem>
+  <div
+    tabindex="-1"
+    class="select-item"
+    *ngFor="let option of options; index as i"
+    [ngClass]="{ active: option?.value === picked?.value }"
+    (click)="selectOption(option); $event.stopPropagation()"
+    (keyup.enter)="selectOption(option); $event.stopPropagation()">
+    <ng-container
+      [ngTemplateOutlet]="defaultOption"
+      [ngTemplateOutletContext]="{ $implicit: option, index: i }">
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #defaultSelected>
+  <span
+    class="select-title"
+    [ngClass]="{
+    picked: !!picked,
+  }">
+    {{ picked?.name || label }}
+  </span>
+</ng-template>
+
+<ng-template #defaultOption let-option>
+  <span>{{ option?.name || option }}</span>
+</ng-template>
+
+<div class="overlay" [ngClass]="{ active: showOptions }"></div>

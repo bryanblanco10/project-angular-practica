@@ -1,0 +1,87 @@
+@import "abstracts/mixins";
+
+.checkbox-container {
+  @include flex($alignItems: center);
+  vertical-align: middle;
+  .checkbox-label {
+    width: auto;
+    display: block;
+    cursor: pointer;
+    .checkbox-custom {
+      @include animate($time: 0.3s, $velocity: ease-out);
+      height: 20px;
+      width: 20px;
+      background-color: transparent;
+      border-radius: var(--border-radius-3);
+      border: 1px solid var(--white);
+      &::after {
+        @include animate($time: 0.3s, $velocity: ease-out);
+        position: absolute;
+        content: "";
+        left: 12px;
+        top: 12px;
+        height: 0;
+        width: 0;
+        border-radius: var(--border-radius-0);
+        border: solid var(--celeste);
+        border-width: 0 2px 2px 0;
+        transform: rotate(0deg) scale(0);
+        opacity: 1;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        left: 10px;
+        top: 10px;
+        width: 0;
+        height: 0;
+        border-radius: var(--border-radius-5);
+        border: 2px solid var(--white);
+        transform: scale(0);
+      }
+    }
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      &:checked ~ .checkbox-custom {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+        &::after {
+          transform: rotate(45deg) scale(1);
+          left: 5px;
+          top: 0px;
+          width: 6px;
+          height: 12px;
+          background-color: transparent;
+        }
+        &::before {
+          @include animate($time: 0.3s, $velocity: ease-out);
+          left: -3px;
+          top: -3px;
+          width: 20px;
+          height: 20px;
+          border-radius: var(--border-radius-5);
+          transform: scale(3);
+          opacity: 0;
+          z-index: 999;
+        }
+      }
+    }
+  }
+  .label-text {
+    padding-left: 10px;
+    font-weight: 400;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .checkbox-container {
+    .label-text {
+      white-space: normal;
+    }
+  }
+}

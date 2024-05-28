@@ -1,0 +1,152 @@
+<section class="content">
+  <div class="content-title">Nueva Cuenta</div>
+  <div class="content-subtitle">
+    Ingresa los siguientes datos para crear tu cuenta en Enlace+.
+  </div>
+  <div class="content-form">
+    <ng-container *ngTemplateOutlet="form"></ng-container>
+  </div>
+</section>
+
+<ng-template #form>
+  <form novalidate autocomplete="off" [formGroup]="registerForm">
+    <div class="form-group mb-3">
+      <app-avatar-plus (setImageAvatar)="setImage($event)"></app-avatar-plus>
+    </div>
+    <div class="form-group mb-3">
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Correo electrónico"
+      />
+      @if(isInValid('email')) {
+        <div class="invalid-feedback">
+          Este campo es obligatorio.
+        </div>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <app-password-plus formControlName="password" [placeholder]="'Contraseña (al menos 8 caracteres)'"></app-password-plus>
+      @if(isInValid('password')) {
+        <div class="invalid-feedback">
+          @if(hasError('required', 'password')) {
+            Este campo es obligatorio.
+          }
+          @if(hasError('minlength', 'password')) {
+            Tu contraseña debe tener mínimo 8 caracteres.
+          }
+        </div>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <app-password-plus formControlName="repeatPassword" [placeholder]="'Confirmar contraseña'"></app-password-plus>
+      @if(isInValid('repeatPassword')) {
+        <div class="invalid-feedback">
+          @if(hasError('mustMatch', 'repeatPassword')) {
+            Las contraseñas no coinciden.
+          }
+          @if(hasError('required', 'repeatPassword')) {
+            Este campo es obligatorio.
+          }
+        </div>
+      }
+    </div>
+    <div class="form-group mb-3">
+      <input
+        formControlName="userName"
+        type="text"
+        class="form-control"
+        id="userName"
+        placeholder="Nombre y apellidos"
+      />
+      @if(isInValid('userName')) {
+        <div class="invalid-feedback">
+          Este campo es obligatorio.
+        </div>
+      }
+    </div>
+    <!-- // TODO: Hacer dropdowns nativos -->
+    @if(isAuthRegisterRequireGenderEnable$ | async) {
+      <div class="form-group mb-3">
+        <app-dropdown-plus formControlName="gender" [label]="'Género'" [options]="arrayGender"></app-dropdown-plus>
+        @if(hasError('required', 'gender')) {
+          <div class="invalid-feedback">
+           Este campo es obligatorio.
+          </div>
+        }
+      </div>
+    }
+
+    @if(isAuthRegisterRequireBirthdateEnable$ | async) {
+      <div class="form-group mb-3">
+        <div class="dropdowns-birthday">
+          <app-dropdown-plus formControlName="day" [label]="'Dia'" [options]="monthDays | mapperDropdownPlus: ['name', 'value']"></app-dropdown-plus>
+          <app-dropdown-plus formControlName="month" [label]="'Mes'" [options]="monthList"></app-dropdown-plus>
+          <app-dropdown-plus formControlName="year" [label]="'Año'" [options]="yearList"></app-dropdown-plus>
+        </div>
+        @if(isInValid('day') || isInValid('month') || isInValid('year')) {
+          <div class="invalid-feedback">
+            @if(hasError('required', 'day') || hasError('required', 'month') || hasError('required', 'year')) {
+              Este campo es obligatorio.
+            }
+            @if(hasError('invalidDate', 'day')) {
+              Fecha de nacimiento invalida.
+            }
+          </div>
+        }
+      </div>
+    }
+
+    @if(isAuthRegisterRequireCountryEnable$ | async) {
+      <div class="form-group mb-3">
+        <app-dropdown-plus
+         formControlName="country"
+         [label]="'País'"
+         [options]="countries$ | async | mapperDropdownPlus: ['name', 'name']">
+        </app-dropdown-plus>
+        @if(isInValid('country')) {
+          <div class="invalid-feedback">
+            Este campo es obligatorio.
+          </div>
+        }
+      </div>
+    }
+  
+    <div class="form-group mb-3">
+      <div class="term-condicions">
+        <app-checkbox-plus
+          formControlName="termConditions"
+          [label]="'Acepto los términos y condiciones.'">
+        </app-checkbox-plus>
+        <span class="ref-clickable">(Ver)</span>
+      </div>
+      @if(isInValid('termConditions')) {
+        <div class="invalid-feedback mx-auto text-center">
+          Debes aceptar los Términos y Condiciones para  crear tu cuenta.
+        </div>
+      }
+    </div>
+    <div class="content-buttons mt-4">
+      <button
+        type="button"
+        class="btn btn-primary"
+        [appApplyClass]="backButtonClassName"
+        (click)="goBack()">
+        VOLVER
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [appApplyClass]="buttonClassName"
+        [disabled]="disableButton">
+        @if(isApiLoading()) {
+          <app-loading-bounce [isLoading]="isApiLoading()" [color]="'#FFF'"></app-loading-bounce>
+        } @else {
+          CREAR
+        }
+      </button>
+    </div>
+  </form>
+</ng-template>

@@ -1,0 +1,50 @@
+@import "abstracts/mixins";
+@import 'partials/inputs';
+
+.content {
+  @include flex(flex-start, center, column);
+  &-title {
+    @include font(
+      $font-family: var(--lato-font),
+      $size: var(--f-35),
+      $weight: 900
+    );
+  }
+  &-form {
+    width: 100%;
+    padding: 0 20px 0 25px;
+    margin: 40px 0px 20px 0px;
+  }
+  &-actions {
+    @include flex(center, center, column);
+    gap: 20px
+  }
+  &-call-to-action {
+    @include flex(center, center);
+    font-size: var(--f-12);
+  }
+  &-action {
+    font-size: var(--f-14);
+    margin-left: 10px;
+    text-decoration: underline;
+    color: var(--celeste);
+    cursor: pointer;
+  }
+  &-links {
+    @include flex();
+    gap: 10px;
+    .link {
+      font-size: var(--f-12);
+      color: var(--glaucous);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.form-control {
+  @include input-main();
+  &::placeholder {
+    color: var(--gray-2);
+  }
+}

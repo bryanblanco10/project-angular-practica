@@ -1,0 +1,24 @@
+<div class="avatar">
+  <label class="avatar-label" [class.not-image]="!image">
+    <i class="iconlace iconlace-user avatar-icon" *ngIf="!image"></i>
+    <img [src]="image" alt="Avatar" *ngIf="image" />
+    <input
+      #imageInput
+      id="file-upload-{{ index }}"
+      type="file"
+      accept="image/*"
+      (change)="readFile($event)"
+    />
+  </label>
+  <label for="file-upload-{{ index }}" class="avatar-placeholder">
+    Cargar imagen de perfil
+  </label>
+</div>
+
+<app-image-cropper 
+  [settingImageCropper]="settingImageCropper" 
+  [imageChangedEvent]="imageChangedEvent"
+  [showCropper]="isCropping"
+  (cancelCropEvent)="cancelCrop()"
+  (sendImageCropped)="imageCropped($event)" >
+</app-image-cropper>

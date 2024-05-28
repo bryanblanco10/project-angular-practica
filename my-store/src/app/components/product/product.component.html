@@ -1,0 +1,11 @@
+<div>
+  <app-img [img]="product.image"></app-img>
+  <!-- <h2>{{ product.title | reverse }}</h2> -->
+  <h2>{{ product.title }}</h2>
+  <p>{{ product.price | currency : "COP" }}</p>
+  <!-- <p appHightlight>{{ product.description }}</p> -->
+  <p>{{ product.taxes | currency : "COP" }}</p>
+  <p>{{ product.description }}</p>
+  <button (click)="addProduct()">Add Product</button>
+  <button (click)="onShowDetail()">Detail Product</button>
+</div>

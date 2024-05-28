@@ -1,0 +1,56 @@
+.method {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  width: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ .checkmark:after {
+      display: block;
+    }
+  }
+  .checkmark {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 0px;
+      left: 0px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+    &.my-subscription {
+      &:after {
+        background: var(--yellow);
+      }
+    }
+    &.subscription-modal {
+      &:after {
+        background: var(--purple);
+      }
+    }
+  }
+  .custom-radio {
+    font-size: 16px;
+    margin-left: 32px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
